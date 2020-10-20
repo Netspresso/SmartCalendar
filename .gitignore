@@ -1,0 +1,9 @@
+*.idea
+*.vs
+*pyc
+my_media
+*.whl
+__pycache__
+venv
+/static
+.DS_Store
