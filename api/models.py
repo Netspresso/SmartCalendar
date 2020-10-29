@@ -1,8 +1,6 @@
 from django.db import models
 ''' My app will be a hybrid of google calendar, todolist and notes '''
 
-# My models:
-
 
 # Note model:
 class Note(models.Model):

@@ -70,7 +70,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 @api_view(['GET'])
-def notes_list(self, request):
+def notes_list(request):
     ''' API endpoint that allows to see all notes '''
     queryset = Note.objects.all()
     serializer_class = NoteSerializer(queryset, many=True)
@@ -78,7 +78,7 @@ def notes_list(self, request):
 
 
 @api_view(['GET'])
-def note_details(self, request, pk):
+def note_details(request, pk):
     ''' API endpoint that allows to see all notes '''
     queryset = Note.objects.get(id=pk)
     serializer_class = NoteSerializer(queryset, many=True)
@@ -86,7 +86,7 @@ def note_details(self, request, pk):
 
 
 @api_view(['GET'])
-def user_notes_list(self, request, username):
+def user_notes_list(request, username):
     ''' API endpoint that allows to see all user's notes '''
     user = User.objects.get(username=username)
     queryset = Note.objects.filter(owner=user.id).order_by(id)
@@ -95,7 +95,7 @@ def user_notes_list(self, request, username):
 
 
 @api_view(['POST'])
-def note_create(self, request, username):
+def note_create(request, username):
     ''' API endpoint that create new note assigned to the user '''
     '''
     {
@@ -115,7 +115,7 @@ def note_create(self, request, username):
 
 
 @api_view(['PUT'])
-def note_update(self, request, pk):
+def note_update(request, pk):
     ''' API endpoint that create new note assigned to the user '''
     '''
     {
@@ -136,7 +136,7 @@ def note_update(self, request, pk):
 
 
 @api_view(['DELETE'])
-def note_destroy(self, request, pk=None):
+def note_destroy(request, pk=None):
     ''' This view delete Note '''
     note = Note.objects.get(id=pk)
     note.delete()
@@ -145,7 +145,7 @@ def note_destroy(self, request, pk=None):
 
 
 @api_view(['GET'])
-def tasks_list(self, request):
+def tasks_list(request):
     ''' API endpoint that allows to see all notes '''
     queryset = Task.objects.all()
     serializer_class = TaskSerializer(queryset, many=True)
@@ -153,7 +153,7 @@ def tasks_list(self, request):
 
 
 @api_view(['GET'])
-def task_details(self, request, pk):
+def task_details(request, pk):
     ''' API endpoint that allows to see all notes '''
     queryset = Task.objects.get(id=pk)
     serializer_class = TaskSerializer(queryset, many=True)
@@ -161,7 +161,7 @@ def task_details(self, request, pk):
 
 
 @api_view(['GET'])
-def user_tasks_list(self, request, username):
+def user_tasks_list(request, username):
     ''' API endpoint that allows to see all user's notes '''
     user = User.objects.get(username=username)
     queryset = Task.objects.filter(owner=user.id).order_by(id)
@@ -170,7 +170,7 @@ def user_tasks_list(self, request, username):
 
 
 @api_view(['POST'])
-def task_create(self, request, username):
+def task_create(request, username):
     ''' API endpoint that create new note assigned to the user '''
     '''
     {
@@ -191,7 +191,7 @@ def task_create(self, request, username):
 
 
 @api_view(['PUT'])
-def task_update(self, request, pk):
+def task_update(request, pk):
     ''' API endpoint that create new note assigned to the user '''
     '''
     {
@@ -213,7 +213,7 @@ def task_update(self, request, pk):
 
 
 @api_view(['DELETE'])
-def task_destroy(self, request, pk=None):
+def task_destroy(request, pk=None):
     ''' This view delete Note '''
     note = Task.objects.get(id=pk)
     note.delete()
